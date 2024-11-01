@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        .container{
+            display: block;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        img {
+            margin-top: -155px;
+            display: block;
+            align-items: center;
+          
+            padding: 100px;
+            border-radius: 50%;
+        }
+        ul {
+            float: left;
+            display: flex;
+        }
+        ul li{
+            list-style-type: none;
+        }
+         ul li a{
+            text-decoration: none;
+            color: #000;
+            margin: 20px;
+            font-weight: bold;
+
+        }
+        ul li a:hover{
+            color:grey;
+            font-size: larger;
+        }
+        #contactme{
+            background: rgb(0, 60, 255);
+            color: white;
+            border: none;
+            width: 120px;
+            height: 40px;
+            border-radius: 2.5px;
+            font-weight: bold;
+        }
+        #contactme:hover{
+            background-color: aqua;
+            color: grey;
+        }
+        span{
+            justify-content: space-between;
+            margin: 30px;
+        }
+        .card{
+            margin-top: 200px;
+            padding: 100px;
+            display: block;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 600px;
+            margin-left: 200px;
+            height: 320px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 5px 4px 3px 1px black;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">ABOUT ME</a></li>
+            <li><a href="">CONTACT</a></li>
+            
+        </ul>
+
+    </nav>
+     <br><br>
+
+     <div class="container">
+        <div class="card">
+    <img src="./cats.jpg">
+    <span><label>Message:</label><input type="text" value="Enter a message" width="100px" height="50px">  <pre></pre><label>Email: </label> <input type="email" value="Enter your email"></span><br><br><br>
+    <button id="contactme" onclick="sendEmail()">Contact me</button>
+</div>
+</div>
+
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <h1>My name is Ogbeide Samuel Ilerioluwakiye</h1>
+    <br><br>
+    <h1>Industrial Mathematics</h1>
+    <br><br>
+  
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "sogbeide.2202827@stu.cu.edu.ng",
+                Password: "Enter your password",
+                To: 'ileriunique40@gmail.com',
+                From: "sogbeide.2202827@stu.cu.edu.ng",
+                Subject: "Sending Email using javascript",
+                Body: "Well that was easy!!",
+            })
+                .then(function (message) {
+                    alert("mail sent successfully")
+                });
+        }
+</script>
+    </body>
+</html>
