@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Refresh Div Content Using jQuery and AJAX</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #f1f1f1;
+        text-align: center; 
+        justify-items: center;
+        margin-top: 350px;
+    }
+    .container_box{
+        width: 500px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+      
+
+    }
+    #load_tweets{
+        padding: 16px;
+        background-color: #f1f1f1;
+        margin-bottom: 30px;
+    }
+
+    #load_tweets p{
+        padding: 12px;
+        border-bottom: 1px dotted #ccc;
+    }
+
+</style>
+<body>
+    <div class="container_box">
+        <form name= "add_tweet" action="" method="post">
+        <h3 align="center">Tweet Page</h3>
+        <div class="form-group">
+            <textarea name="tweet" id="tweet" class="form-container"></textarea>
+        </div>
+        <div class="form-group" align="right">
+        <input type="button" name= "btn_tweet" value="Tweet" id="btn_tweet">
+        </div>
+    </div>
+    </form>
+    <br />
+    <br />
+    <div id="load_tweets">
+     <!-- Refresh this div content every second!-->
+     <!-- Refresh this div content every second!
+          we use setInterval() !-->
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#btn_tweet').on('click', function(){
+                var tweet_txt = $('#tweet').val(); // Get the value of the tweet textarea
+                //trim() removes whitespace from both ends of a string
+                if($.trim(tweet_txt) != '')
+                {
+                    $.ajax({
+                        url: 'insert.php',
+                        method: 'POST',
+                        data: {tweet: tweet_txt},
+                        dataType: 'text',
+                        success: function(data)
+                        {
+                            
+                        }
+                    })
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

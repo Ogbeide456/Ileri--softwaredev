@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<!--Font awesome CDN Link-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    background-color: #f3f4f7;
+    display: flex;
+   
+ 
+    justify-content: center;
+    align-items: center;
+  
+}
+input, textarea, button{
+    font-family: inherit;
+}
+.container {
+    width: 420px;
+    height: 530px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 5px rgba(83, 87, 95, 0.25);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>copy to clipboard</h1>
+        <textarea name="" id="textField" class="text-field">Lorem</textarea>
+        <button class="copy-btn">
+            <i class="fas fa-clone"></i>
+        </button>
+        <span class="copied">Copied!</span>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            //Make two functions to add and remove the class in the span
+            function add() {
+                $(".copied").addClass("bounce-effect"); // Add the class bounce-effect to the span(copied)
+
+            }
+            function remove() {
+                $(".copied").removeClass("bounce-effect"); // Remove the class bounce-effect from the span(copied)
+            }
+            // Call the functions and copy the text on button click
+            $(".copy-btn").click(function() {
+                var text = $("#textField").val(); // Get the value of the textarea
+                navigator.clipboard.writeText(text); // Copy the text to clipboard
+                add(); // Call the add function to add the class bounce-effect
+                setTimeout(remove, 1000); // Call the remove function after 1 second
+            });
+        })
+    </script>
+    
+</body>
+</html>
