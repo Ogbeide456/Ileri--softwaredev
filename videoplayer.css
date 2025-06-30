@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    background-color: black;
+}
+#videoPlayer{
+    width: 80%;
+    height: 80%;
+    margin-left: 100px;
+    position: relative;
+}
+#playPauseBtn{
+    border-radius: 5px;
+    position: relative;
+    border: none;
+    width: 100px;
+    height: 50px;
+    
+
+}
+#controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+   
+}
+#playPauseBtn:hover{
+    background-color: gray;
+    color: white;
+}
+#stopBtn{
+    border-radius: 5px;
+    position: relative;
+    border: none;
+    width: 100px;
+    height: 50px;
+}
+#stopBtn:hover{
+    background-color: gray;
+    color: white;
+}
+#muteBtn{
+    border-radius: 5px;
+    position: relative;
+    border: none;
+    width: 100px;
+    height: 50px;
+}
+#muteBtn:hover{
+    background-color: gray;
+    color: white;
+}
+#timeDisplay {
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 5px 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 3px;
+    min-width: 120px;
+    text-align: center;
+}
